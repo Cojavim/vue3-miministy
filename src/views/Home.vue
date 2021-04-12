@@ -1,18 +1,32 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
+
+  <base-card>
+    <InputContainer />
+  </base-card>
+  
+  <MonthlyReview />
+  
+  <base-card>
+    <EntryCard />
+  </base-card>
+
 </template>
 
-<script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
-
-@Options({
-  components: {
-    HelloWorld,
+<script>
+import InputContainer from '../components/InputContainer'
+import MonthlyReview from '../components/MonthlyReview.vue'
+import EntryCard from '../components/EntryCard.vue'
+import BaseCard from '@/components/ui/BaseCard.vue'
+export default {
+  components: { 
+    InputContainer,
+    MonthlyReview,
+    EntryCard,
+    BaseCard
   },
-})
-export default class Home extends Vue {}
+
+}
 </script>
+
+<style>
+</style>

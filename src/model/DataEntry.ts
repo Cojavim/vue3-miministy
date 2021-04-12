@@ -1,21 +1,23 @@
-import dayjs, { Dayjs } from 'dayjs'
+import { Dayjs } from 'dayjs'
 
 export default class DataEntry {
-  Dayjs: Dayjs;
-  Date: string;
-  TimeServed: Number;
-  Publications: Number;
-  ReturnVisits: Number;
-  VideosPlayed: Number;
-  StudiesConducted: Number;
+  // Dayjs: Dayjs;
+  Date: Date;
+  DayString: string;
+  TimeString: string;
+  Publications: number;
+  ReturnVisits: number;
+  VideosPlayed: number;
+  StudiesConducted: number;
   Note: string;
-  HoursServed: Number;
-  MinutesServed: Number;
+  HoursServed: number;
+  MinutesServed: number;
 
   constructor() {
-    this.Dayjs = new Dayjs;
-    this.Date = '';
-    this.TimeServed = 0;
+    // this.Dayjs = new Dayjs(),
+    this.Date = new Date;
+    this.DayString = new Date().toISOString().substr(0, 10);
+    this.TimeString = '00:00';
     this.Publications = 0;
     this.ReturnVisits = 0;
     this.VideosPlayed = 0;
