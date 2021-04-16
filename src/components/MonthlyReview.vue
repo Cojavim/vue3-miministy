@@ -27,7 +27,8 @@
         <td>{{ totalStudies }}</td>
       </tr>
     </table>
-    <base-button type="button" @click="edit">Upravit</base-button>
+    <base-button type="button" @click="add">Přidat</base-button>
+    <base-button type="button" mode="flat" @click="edit">Upravit</base-button>
   </div>
 </template>
 

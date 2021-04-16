@@ -1,6 +1,6 @@
 <template>
   <div id="InputContainer">
-    <form novalidate @submit.prevent="onSubmit">
+    <form novalidate @submit.prevent="addEntry(Entry.newEntry)">
       <!-- <label for="DayString"></label> -->
       <input id="DayString" type="date" v-model="Entry.newEntry.DayString" /> <br>
 
@@ -28,22 +28,26 @@
 </template>
 
 <script lang="ts">
-import { ref, reactive } from 'vue';
-import { Dayjs } from 'dayjs'
+import { reactive } from 'vue';
+// import { Dayjs } from 'dayjs'
 import DataEntry from '@/model/DataEntry';
+import { useStore } from 'vuex'
+
 export default {
-  setup() {
+  setup () {
+    const store = useStore();
+
     let newEntry = new DataEntry();
-    const Entry = reactive({newEntry});
-    console.log(newEntry)
+    let Entry = reactive({newEntry});
     
-    function onSubmit() {
-      console.log('Submit', Entry)
+    const addEntry = (Entry: DataEntry) => {
+      let lCopy= Object.assign({}, Entry);
+      store.dispatch('addEntry', lCopy);
     }
 
     return {
       Entry: Entry,
-      onSubmit: onSubmit
+      addEntry: addEntry,
     }
   }
 }

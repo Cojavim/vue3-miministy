@@ -1,3 +1,4 @@
+import newGuid from '@/utils/guidGenerator';
 import { Dayjs } from 'dayjs'
 
 export default class DataEntry {
@@ -12,6 +13,7 @@ export default class DataEntry {
   Note: string;
   HoursServed: number;
   MinutesServed: number;
+  Guid: string;
 
   constructor() {
     // this.Dayjs = new Dayjs(),
@@ -25,5 +27,6 @@ export default class DataEntry {
     this.Note = '';
     this.HoursServed = 0;
     this.MinutesServed = 0;
+    this.Guid = newGuid();
   }
 }

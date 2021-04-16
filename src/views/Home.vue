@@ -4,10 +4,12 @@
     <InputContainer />
   </base-card>
   
-  <MonthlyReview />
-  
   <base-card>
-    <EntryCard />
+    <MonthlyReview />
+  </base-card>
+
+  <base-card>
+    <EntryDeck />
   </base-card>
 
 </template>
@@ -15,14 +17,14 @@
 <script>
 import InputContainer from '../components/InputContainer'
 import MonthlyReview from '../components/MonthlyReview.vue'
-import EntryCard from '../components/EntryCard.vue'
+import EntryDeck from '../components/EntryDeck.vue'
 import BaseCard from '@/components/ui/BaseCard.vue'
 export default {
   components: { 
     InputContainer,
     MonthlyReview,
-    EntryCard,
-    BaseCard
+    BaseCard,
+    EntryDeck
   },
 
 }

@@ -1,16 +1,19 @@
 <template>
   <div>
     <div>
-      entry.date
-      <!-- {{ entry.date }} -->
+      <!-- entry.date -->
+      {{ entry.Date }}
     </div>
     <div>
       <p>
-        <!-- {{ entry.note }} -->
+        <!-- entry.note -->
+        {{ entry.Note }}
       </p>
       <p>
-        <!-- Hodiny: {{ entry.timeServed }}, Publikace: {{ entry.publications }}, ON: {{ entry.returnVisits }},  -->
-        <!-- Videa: {{ entry.videosPlayed }}, Studia:{{ entry.studiesConducted }} -->
+        <!-- Hodiny: entry.timeServed , Publikace: entry.publications , ON: entry.returnVisits ,  -->
+        <!-- Videa: entry.videosPlayed , Studia: entry.studiesConducted  -->
+        Hodiny: {{ entry.TimeString }}, Publikace: {{ entry.Publications }}, ON: {{ entry.ReturnVisits }}, 
+        Videa: {{ entry.VideosPlayed }}, Studia:{{ entry.StudiesConducted }}
       </p>
     </div>
     <div>
@@ -22,7 +25,7 @@
 
 <script>
 export default {
-  // props: ['entry'], 
+  props: ['entry'], 
 }
 </script>
 
