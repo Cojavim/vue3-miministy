@@ -16,7 +16,7 @@ class IndexedDb {
                         if (db.objectStoreNames.contains(tableName)) {
                             continue;
                         }
-                        db.createObjectStore(tableName, { autoIncrement: true, keyPath: 'id' });
+                        db.createObjectStore(tableName, { autoIncrement: true, keyPath: 'Guid' });
                     }
                 },
             });
@@ -33,7 +33,7 @@ class IndexedDb {
         return result;
     }
 
-    public async getAllValue(tableName: string) {
+    public async getAllValues(tableName: string) {
         const tx = this.db.transaction(tableName, 'readonly');
         const store = tx.objectStore(tableName);
         const result = await store.getAll();
@@ -41,7 +41,7 @@ class IndexedDb {
         return result;
     }
 
-    public async putValue(tableName: string, value: object) {
+    public async putValue(tableName: string, value: any) {
         const tx = this.db.transaction(tableName, 'readwrite');
         const store = tx.objectStore(tableName);
         const result = await store.put(value);
@@ -49,27 +49,28 @@ class IndexedDb {
         return result;
     }
 
-    public async putBulkValue(tableName: string, values: object[]) {
+    public async putBulkValue(tableName: string, values: any[]) {
         const tx = this.db.transaction(tableName, 'readwrite');
         const store = tx.objectStore(tableName);
         for (const value of values) {
             const result = await store.put(value);
             console.log('Put Bulk Data ', JSON.stringify(result));
         }
-        return this.getAllValue(tableName);
+        return this.getAllValues(tableName);
     }
 
-    public async deleteValue(tableName: string, id: number) {
+    public async deleteValue(tableName: string, guid: string) {
         const tx = this.db.transaction(tableName, 'readwrite');
         const store = tx.objectStore(tableName);
-        const result = await store.get(id);
+        const result = await store.get(guid);
         if (!result) {
-            console.log('Id not found', id);
+            console.log('Id not found', guid);
             return result;
         }
-        await store.delete(id);
-        console.log('Deleted Data', id);
-        return id;
+        await store.delete(guid);
+        console.log('Deleted Data', guid);
+        
+        // return true;
     }
 }
 

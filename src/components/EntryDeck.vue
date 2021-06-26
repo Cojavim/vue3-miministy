@@ -4,6 +4,7 @@
       <EntryCard :entry="entry" @edit="editEntry" @delete="deleteEntry"/>
     </base-card>
   </div>
+  <base-button type="button" @click="$emit('goHome')">Zpět</base-button>
 </template>
 
 <script>
@@ -11,18 +12,27 @@
   import { computed } from 'vue'
   import { useStore } from 'vuex'
 export default {
-  setup () {
+  setup (props, { emit }) {
     const store = useStore()
 
-    const entryList = computed(() => store.state.entryList)
-    
+    const entryList = computed(() => store.getters.getCurrentMonth)
+
+    const deleteEntry = async (entry) => {
+      await store.dispatch('deleteEntry', entry)
+      await store.dispatch('loadList')
+      store.commit('setCurrentMonth')
+    }
+
+    const editEntry = (entry) => emit('edit',entry)
 
     return {
       entryList,
+      deleteEntry,
+      editEntry,
     }
   },
   components: { 
-    EntryCard
+    EntryCard,
   },
 }
 </script>

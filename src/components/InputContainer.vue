@@ -23,30 +23,52 @@
       <textarea id="Note" type="text" v-model="Entry.newEntry.Note" placeholder="Poznámka"/> <br>
 
       <base-button>Uložit</base-button>
+      <base-button type="button" mode="flat" @click="cancel">Zrušit</base-button>
     </form>
   </div>
 </template>
 
-<script lang="ts">
-import { reactive } from 'vue';
+<script>
+import { computed, reactive } from 'vue';
 // import { Dayjs } from 'dayjs'
 import DataEntry from '@/model/DataEntry';
 import { useStore } from 'vuex'
 
 export default {
-  setup () {
+  props: {
+    passedEntry: {
+      type: DataEntry,
+    }
+  },
+  setup (props, { emit }) {
     const store = useStore();
-
-    let newEntry = new DataEntry();
+    
+    let newEntry = computed(() => store.getters.getCurrentEntry);
     let Entry = reactive({newEntry});
     
-    const addEntry = (Entry: DataEntry) => {
+    const clear = () => {
+      console.log("*******")
+      store.commit('setCurrentEntry', new DataEntry)
+      Entry = reactive({newEntry});
+    }
+
+    const addEntry = async (Entry) => {
       let lCopy= Object.assign({}, Entry);
       store.dispatch('addEntry', lCopy);
+      await store.dispatch('loadList')
+      clear()
+      emit('goHome')
+    }
+
+    const cancel = () => {
+      clear()
+      console.log("go back")
+      emit('goHome')
     }
 
     return {
       Entry: Entry,
+      cancel,
       addEntry: addEntry,
     }
   }

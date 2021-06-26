@@ -1,67 +1,38 @@
 <template>
   <div id="MothlyReviewContainer">
     <table>
-      <th><v-btn @click="back">&larr;</v-btn></th>
-      <th colspan="2">Zpráva za {{ shownMonth + 1 }} {{ shownYear }}</th>
-      <th><v-btn @click="forward">&rarr;</v-btn></th>
+      <th><v-btn @click="$emit('back')">&larr;</v-btn></th>
+      <th colspan="2">Zpráva za {{ report.Month }} {{ report.Year }}</th>
+      <th><v-btn @click="$emit('forward')">&rarr;</v-btn></th>
       <tr>
-        <td rowspan="5"></td>
         <td>Čas:</td>
-        <td>{{ totalHous }}:{{ totalMinutes }}</td>
-        <td rowspan="5"></td>
+        <td>{{ report.TimeString }}</td>
       </tr>
       <tr>
         <td>Publikace:</td>
-        <td>{{ totalPub }}</td>
+        <td>{{ report.Publications }}</td>
       </tr>
       <tr>
         <td>Opětovné návštěvy:</td>
-        <td>{{ totalVisits }}</td>
+        <td>{{ report.ReturnVisits }}</td>
       </tr>
       <tr>
         <td>Videa:</td>
-        <td>{{ totalVideos }}</td>
+        <td>{{ report.VideosPlayed }}</td>
       </tr>
       <tr>
         <td>Studia:</td>
-        <td>{{ totalStudies }}</td>
+        <td>{{ report.StudiesConducted }}</td>
       </tr>
     </table>
-    <base-button type="button" @click="add">Přidat</base-button>
-    <base-button type="button" mode="flat" @click="edit">Upravit</base-button>
+    <base-button type="button" @click="$emit('addNewEntry')">Přidat</base-button>
+    <base-button type="button" mode="flat" @click="$emit('editMonth')">Upravit</base-button>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue';
-
 export default {
-  setup() {
-    const shownMonth = ref(0);
-    const shownYear = ref(0);
-
-    const totalHous = ref(0);
-    const totalMinutes = ref(0);
-
-    const totalPub = ref(0);
-    const totalVisits = ref(0);
-    const totalVideos = ref(0);
-    const totalStudies = ref(0);
-
-
-    return {
-      shownMonth: shownMonth,
-      shownYear: shownYear,
-
-      totalHous: totalHous,
-      totalMinutes: totalMinutes,
-
-      totalPub: totalPub,
-      totalVisits: totalVisits,
-      totalVideos: totalVideos,
-      totalStudies: totalStudies,
-    }
-  }
+  props: ['report'], 
 }
 </script>
 
