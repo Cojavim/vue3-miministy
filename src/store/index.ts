@@ -42,7 +42,7 @@ export default createStore({
         hours += parseInt(a.TimeString.slice(0,2))
         minutes += parseInt(a.TimeString.slice(3,5))
         report.Publications += parseInt(a.Publications.toString())
-        report.ReturnVisits += parseInt(a.StudiesConducted.toString())
+        report.ReturnVisits += parseInt(a.ReturnVisits.toString())
         report.VideosPlayed += parseInt(a.VideosPlayed.toString())
         report.StudiesConducted += parseInt(a.StudiesConducted.toString())
       });
