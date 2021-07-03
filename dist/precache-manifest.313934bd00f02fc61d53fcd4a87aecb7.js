@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a472daf7160672d2aa45",
+    "revision": "ef055ee8bf12222f0ef0",
     "url": "/vue3-miniministry/css/app.4d7b33e6.css"
   },
   {
-    "revision": "eec79054e9c5898487188215b1ec9ccd",
+    "revision": "bdea6dbd6d87254e75141dd471e8483b",
     "url": "/vue3-miniministry/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vue3-miniministry/js/about.7bb8eeb6.js"
   },
   {
-    "revision": "a472daf7160672d2aa45",
-    "url": "/vue3-miniministry/js/app.07155de5.js"
+    "revision": "ef055ee8bf12222f0ef0",
+    "url": "/vue3-miniministry/js/app.15a03438.js"
   },
   {
     "revision": "07177c99f24b2ffa6380",
