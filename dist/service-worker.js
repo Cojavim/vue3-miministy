@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/vue3-miniministry/precache-manifest.d1b95cbf32cfd15ebfa12620177b082c.js"
+  "/vue3-miministy/precache-manifest.74a0c571c42e5eaf541eae62ae4988ef.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "vue3-miniministry"});
