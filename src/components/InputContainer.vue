@@ -8,17 +8,32 @@
       <input id="TimeString" type="time" v-model="Entry.newEntry.TimeString" /> <br>
 
       <label for="Publications">Publikace</label>
-      <input id="Publications" type="number" v-model="Entry.newEntry.Publications" /> <br>
+      <br>
+      <circle-button type="button" @click="Entry.newEntry.Publications--">-</circle-button>
+      <input class="inputClass" id="Publications" type="number" v-model="Entry.newEntry.Publications" />
+      <circle-button type="button" @click="Entry.newEntry.Publications++">+</circle-button>
+      <br>
 
       <label for="ReturnVisits">ON</label>
-      <input id="ReturnVisits" type="number" v-model="Entry.newEntry.ReturnVisits" /> <br>
+      <br>
+      <circle-button type="button" @click="Entry.newEntry.ReturnVisits--">-</circle-button>
+      <input class="inputClass" id="ReturnVisits" type="number" v-model="Entry.newEntry.ReturnVisits" />
+      <circle-button type="button" @click="Entry.newEntry.ReturnVisits++">+</circle-button>
+      <br>
 
       <label for="VideosPlayed">Videa</label>
-      <input id="VideosPlayed" type="number" v-model="Entry.newEntry.VideosPlayed" /> <br>
+      <br>
+      <circle-button type="button" @click="Entry.newEntry.VideosPlayed--">-</circle-button>
+      <input class="inputClass" id="VideosPlayed" type="number" v-model="Entry.newEntry.VideosPlayed" /> 
+      <circle-button type="button" @click="Entry.newEntry.VideosPlayed++">+</circle-button>
+      <br>
 
       <label for="StudiesConducted">Studia</label>
-      <input id="StudiesConducted" type="number" v-model="Entry.newEntry.StudiesConducted" /> <br>
-
+      <br>
+      <circle-button type="button" @click="Entry.newEntry.StudiesConducted--">-</circle-button>
+      <input class="inputClass" id="StudiesConducted" type="number" v-model="Entry.newEntry.StudiesConducted" /> 
+      <circle-button type="button" @click="Entry.newEntry.StudiesConducted++">+</circle-button>
+      <br>
       <!-- <label for="Note"></label> -->
       <textarea id="Note" type="text" v-model="Entry.newEntry.Note" placeholder="Poznámka"/> <br>
 
@@ -32,6 +47,7 @@
 import { computed, reactive } from 'vue';
 // import { Dayjs } from 'dayjs'
 import DataEntry from '@/model/DataEntry';
+import InputField from '@/components/InputField.vue'
 import { useStore } from 'vuex'
 
 export default {
@@ -66,15 +82,32 @@ export default {
       emit('goHome')
     }
 
+    const subtract = (aValue) => {
+      return aValue--
+    }
+    
+    const add = (aValue) => {
+      console.log(aValue)
+      return aValue++
+    }
+
     return {
       Entry: Entry,
       cancel,
+      subtract,
+      add,
       addEntry: addEntry,
     }
+  },
+  components: {
+    // InputField
   }
 }
 </script>
 
-<style>
+<style scoped>
+.inputClass {
+  outline: none;
+}
 
 </style>

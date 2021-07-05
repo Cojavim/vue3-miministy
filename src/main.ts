@@ -5,6 +5,7 @@ import router from './router'
 import store from './store'
 
 import BaseCard from './components/ui/BaseCard.vue';
+import CircleButton from './components/ui/CircleButton.vue';
 import BaseButton from './components/ui/BaseButton.vue';
 import BaseDialog from './components/ui/BaseDialog.vue';
 
@@ -14,6 +15,7 @@ app.use(store).use(router);
 
 app.component('base-card', BaseCard);
 app.component('base-button', BaseButton);
+app.component('circle-button', CircleButton);
 app.component('base-dialog', BaseDialog);
 
 app.mount('#app');
