@@ -1,4 +1,4 @@
 // vue.config.js
 module.exports = {
-  publicPath: '/vue3-miniministry/'
+  publicPath: '/vue3-miministy/'
 }
