@@ -42,6 +42,8 @@ a {
   border-radius: 30px;
   margin-right: 0.5rem;
   display: inline-block;
+  font-size: 22px;
+  font-weight: 600;
 }
 
 a:hover,
@@ -60,6 +62,7 @@ button:active {
   background-color: transparent;
   color: #3a0061;
   border: none;
+  background-color: #eaeaea;
 }
 
 .green {
