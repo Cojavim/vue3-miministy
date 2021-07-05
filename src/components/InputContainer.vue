@@ -90,10 +90,29 @@ export default {
     }
 
     const subtractHour = () => {
-      console.log(Entry.newEntry.TimeString)
+      let hour = getHour(Entry.newEntry.TimeString)
+      hour --
+      if (hour < 0) {
+        Entry.newEntry.TimeString = '00:00'
+        return
+      }
+      setHour(hour)
     }
     const addHour = () => {
-      console.log(Entry.newEntry.TimeString)
+      let hour = getHour(Entry.newEntry.TimeString)
+      hour ++
+      setHour(hour)
+    }
+    const getHour = (aTimeString) => {
+      return parseInt(aTimeString.slice(0,2));
+    }
+    const setHour = (aHour) => {
+      const min = Entry.newEntry.TimeString.slice(3,5)
+      if(aHour < 10) {
+        Entry.newEntry.TimeString = `0${aHour}:${min}`
+        return
+      }
+      Entry.newEntry.TimeString = `${aHour}:${min}`
     }
     return {
       Entry: Entry,
