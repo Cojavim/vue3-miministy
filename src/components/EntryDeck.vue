@@ -4,7 +4,7 @@
       <EntryCard :entry="entry" @edit="editEntry" @delete="deleteEntry"/>
     </base-card>
   </div>
-  <base-button type="button" @click="$emit('goHome')">Zpět</base-button>
+  <!-- <base-button class="btnBack" type="button" @click="$emit('goHome')">Zpět</base-button> -->
 </template>
 
 <script>
@@ -37,6 +37,10 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.btnBack {
+  position: fixed;
+  bottom: 5px;
+  right: -5px;
+}
 </style>

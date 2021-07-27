@@ -51,10 +51,10 @@ a {
 a:hover,
 a:active,
 button:hover,
-button:active {
+/* button:active {
   background-color: #270041;
   border-color: #270041;
-}
+} */
 
 .nooutline {
   outline: none;

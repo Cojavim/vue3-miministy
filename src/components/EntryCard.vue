@@ -1,15 +1,16 @@
 <template>
-  <div>
-    <div>
-      {{ entry.DayString }}
+  <div class="card">
+    <div class="dateAndTime">
+      {{ entry.FormatedDate }}&nbsp;&nbsp;&nbsp;{{ entry.TimeString }}
     </div>
     <div>
-      <p>
+      <p class="note">
         {{ entry.Note }}
       </p>
-      <p>
-        Hodiny: {{ entry.TimeString }}, Publikace: {{ entry.Publications }}, ON: {{ entry.ReturnVisits }}, 
-        Videa: {{ entry.VideosPlayed }}, Studia:{{ entry.StudiesConducted }}
+      <p class="data">
+        Publikace: {{ entry.Publications }}, Videa: {{ entry.VideosPlayed }}
+        <br>
+        ON: {{ entry.ReturnVisits }}, Studia:{{ entry.StudiesConducted }}
       </p>
     </div>
     <div>
@@ -25,6 +26,18 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.dateAndTime {
+  margin-top: -15px;
+}
+.note {
 
+}
+.data {
+
+}
+.card {
+  font-weight: 900;
+  font-size: 20px;
+}
 </style>

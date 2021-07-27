@@ -22,17 +22,17 @@
       </div>
 
       <div class="inputSection">
-        <label class="inputLabel" for="ReturnVisits">ON</label> <br>
-        <circle-button type="button" mode="flat" @click="Entry.newEntry.ReturnVisits--">-</circle-button>
-        <input class="inputClass" id="ReturnVisits" type="number" v-model="Entry.newEntry.ReturnVisits" />
-        <circle-button type="button" @click="Entry.newEntry.ReturnVisits++">+</circle-button>
-      </div>
-
-      <div class="inputSection">
         <label class="inputLabel" for="VideosPlayed">Videa</label> <br>
         <circle-button type="button" mode="flat" @click="Entry.newEntry.VideosPlayed--">-</circle-button>
         <input class="inputClass" id="VideosPlayed" type="number" v-model="Entry.newEntry.VideosPlayed" /> 
         <circle-button type="button" @click="Entry.newEntry.VideosPlayed++">+</circle-button>  
+      </div>
+
+      <div class="inputSection">
+        <label class="inputLabel" for="ReturnVisits">ON</label> <br>
+        <circle-button type="button" mode="flat" @click="Entry.newEntry.ReturnVisits--">-</circle-button>
+        <input class="inputClass" id="ReturnVisits" type="number" v-model="Entry.newEntry.ReturnVisits" />
+        <circle-button type="button" @click="Entry.newEntry.ReturnVisits++">+</circle-button>
       </div>
 
       <div class="inputSection">
@@ -147,7 +147,7 @@ input[type=number] {
   width: 135px;
   border-width: 1px;
   text-align: center;
-  background-color: #e8e8e8;
+  background-color: #eaeaea;
   border-radius: 25px;
   margin-left: 22px;
   margin-right: 22px;

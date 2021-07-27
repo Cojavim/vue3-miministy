@@ -14,6 +14,7 @@ export default class DataEntry {
   HoursServed: number;
   MinutesServed: number;
   Guid: string;
+  FormatedDate: string;
 
   constructor() {
     // this.Dayjs = new Dayjs(),
@@ -28,5 +29,6 @@ export default class DataEntry {
     this.HoursServed = 0;
     this.MinutesServed = 0;
     this.Guid = newGuid();
+    this.FormatedDate = '';
   }
 }

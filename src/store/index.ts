@@ -24,6 +24,9 @@ export default createStore({
       return state.entryList
     },
     getCurrentMonth(state) {
+      state.monthEntryList.forEach(a => {
+        a.FormatedDate = `${a.DayString.slice(8,10)}.${a.DayString.slice(5,7)}.${a.DayString.slice(0,4)}`
+      });
       return state.monthEntryList
     },
     getSelectedMonth(state) {
